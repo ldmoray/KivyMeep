@@ -9,23 +9,24 @@ from kivy.properties import ObjectProperty
 from kivy.uix.widget import Widget
 
 
-class MoopFemaleWidget(Widget):
+class MoopWidget(Widget):
     mo = ObjectProperty(meep.random_moop())
     color = ObjectProperty((1.0, 1.0, 1.0))
 
+    def update_color(self):
+        self.color = webcolors.hex_to_rgb_float(self.mo.express())
+        with self.canvas:
+            Color(*self.color)
 
-class MoopMaleWidget(Widget):
-    mo = ObjectProperty(meep.random_moop())
-    color = ObjectProperty((1.0, 1.0, 1.0))
+
+class MoopMaleWidget(MoopWidget):
 
     def on_touch_down(self, touch):
         if self.collide_point(touch.x, touch.y):
             self.mo = meep.random_moop()
 
     def on_mo(self, instance, value):
-        self.color = webcolors.hex_to_rgb_float(self.mo.express())
-        with self.canvas:
-            Color(*self.color)
+        self.update_color()
 
 
 class MoopWorld(Widget):

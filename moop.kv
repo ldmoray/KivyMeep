@@ -1,6 +1,6 @@
 #:kivy 1.9.0
 
-<MoopMaleWidget>:
+<MoopWidget>:
     size: 100, 100
     canvas:
         Color:
@@ -9,7 +9,7 @@
             pos: self.pos
             size: self.size
 
-<MoopFemaleWidget>:
+<MoopMaleWidget>:
     size: 100, 100
     canvas:
         Color:
@@ -29,6 +29,6 @@
         center_x: self.parent.center_x
         center_y: self.parent.center_y-200
 
-    MoopFemaleWidget:
+    MoopWidget:
         id: Fem_mid
         center: self.parent.center
