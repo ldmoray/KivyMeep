@@ -1,0 +1,34 @@
+#:kivy 1.9.0
+
+<MoopMaleWidget>:
+    size: 100, 100
+    canvas:
+        Color:
+            rgb: self.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<MoopFemaleWidget>:
+    size: 100, 100
+    canvas:
+        Color:
+            rgb: self.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<MoopWorld>:
+    MoopMaleWidget:
+        id: Moop_top
+        center_x: self.parent.center_x
+        center_y: self.parent.center_y+200
+
+    MoopMaleWidget:
+        id: Moop_bot
+        center_x: self.parent.center_x
+        center_y: self.parent.center_y-200
+
+    MoopFemaleWidget:
+        id: Fem_mid
+        center: self.parent.center
